@@ -51,6 +51,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+SESSION_ENGINE = 'mysite.simplesession'
 
 TEMPLATES = [
     {
