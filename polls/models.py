@@ -2,6 +2,7 @@ import datetime
 
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -26,3 +27,9 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
     def __str__(self):
         return self.choice_text
+
+class Message(models.Model):
+	#source = models.ForeignKey(User, on_delete=models.CASCADE, related_name='source')
+	#target = models.ForeignKey(User, on_delete=models.CASCADE, related_name='target')
+	content = models.TextField()
+	#time = models.DateTimeField(auto_now_add=True)

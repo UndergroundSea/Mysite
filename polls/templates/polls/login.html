@@ -5,37 +5,3 @@
   <button type="submit">Login</button>
 </form>
 
-<form>
-  <input type="text" name="name" id="name"/>
-  <input type="button" onclick="addTask();" value="Add!"/>
-</form>
-
-
-<script inline="javascript">
-  function addTask() {
-      var name = document.querySelector("#name").value;
-      if (!name) {
-          return;
-      }
-
-      console.log(name);
-
-      var http = new XMLHttpRequest();
-
-// We are not using any CSRF protection(!) this should not be done in production
-      http.open("POST", 'add', true);
-      http.setRequestHeader("Content-type", "application/json");
-      var data = new Object();
-      data.name = name;
-
-      http.onreadystatechange = function () {
-          if (http.readyState === 4) {
-              if (http.status === 200) {
-                  addTaskToList(JSON.parse(http.responseText));
-              }
-          }
-      }
-
-      http.send(JSON.stringify(data));
-  }
-</script>
