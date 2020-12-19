@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
-from .models import Message
+#from .models import Message
 import sqlite3
 
 from .models import Choice, Question
@@ -56,15 +56,15 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
 
-def reviewView(request):
-	messages = Message.objects.all()
-	return render(request, 'polls/results.html/', {'msgs': messages})
+#def reviewView(request):
+#	messages = Message.objects.all()
+#	return render(request, 'polls/results.html/', {'msgs': messages})
 
-def review(request, review, question_id):
-    conn = sqlite3.connect('db.sqlite3')
-    cursor = conn.cursor()
-    cursor.execute("INSERT INTO Reviews (text) VALUES ('%s')" % review)
-    return HttpResponseRedirect(reverse('polls:results', args=(question_id)))
+#def review(request, review, question_id):
+#    conn = sqlite3.connect('db.sqlite3')
+#    cursor = conn.cursor()
+#    cursor.execute("INSERT INTO Reviews (text) VALUES ('%s')" % review)
+#    return HttpResponseRedirect(reverse('polls:results', args=(question_id)))
 
-def thank():
-    return HttpResponseRedirect(reverse('polls:results'))
+#def thank():
+#    return HttpResponseRedirect(reverse('polls:results'))

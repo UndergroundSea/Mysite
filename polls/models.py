@@ -28,8 +28,8 @@ class Choice(models.Model):
     def __str__(self):
         return self.choice_text
 
-class Message(models.Model):
+#class Message(models.Model):
 	#source = models.ForeignKey(User, on_delete=models.CASCADE, related_name='source')
 	#target = models.ForeignKey(User, on_delete=models.CASCADE, related_name='target')
-	content = models.TextField()
+	#content = models.TextField()
 	#time = models.DateTimeField(auto_now_add=True)
